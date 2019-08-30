@@ -24,7 +24,7 @@ public class RetrofitClient {
 
 
         return  mRetrofitBuilder
-                .baseUrl("http://amstdb.herokuapp.com/db/")
+                .baseUrl("https://www.superheroapi.com/api.php")
                 .build()
                 .create(ApiService.class);
     }
