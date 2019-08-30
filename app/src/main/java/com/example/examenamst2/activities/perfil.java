@@ -19,12 +19,17 @@ import com.example.examenamst2.R;
 import com.example.examenamst2.databinding.ActivityPerfilBindingImpl;
 import com.example.examenamst2.databinding.ActivityResultsBinding;
 import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.data.ChartData;
+import com.github.mikephil.charting.utils.ColorTemplate;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
@@ -55,9 +60,32 @@ public class perfil extends AppCompatActivity {
                             binding.nombre.setText(response.getString("name"));
                             JSONObject biography = response.getJSONObject("biography");
                             binding.nombreReal.setText(biography.getString("full-name"));
+                            ArrayList powerstats = new ArrayList();
+                            powerstats.add(new BarEntry(Float.valueOf(response.getJSONObject("powerstats").getString("intelligence")), 0));
+                            powerstats.add(new BarEntry(Float.valueOf(response.getJSONObject("powerstats").getString("strength")), 1));
+                            powerstats.add(new BarEntry(Float.valueOf(response.getJSONObject("powerstats").getString("speed")), 2));
+                            powerstats.add(new BarEntry(Float.valueOf(response.getJSONObject("powerstats").getString("durability")), 3));
+                            powerstats.add(new BarEntry(Float.valueOf(response.getJSONObject("powerstats").getString("power")), 4));
+                            powerstats.add(new BarEntry(Float.valueOf(response.getJSONObject("powerstats").getString("combat")), 5));
+
+                            ArrayList<String> power = new ArrayList<>();
+
+                            power.add("intelligence");
+                            power.add("strength");
+                            power.add("speed");
+                            power.add("durability");
+                            power.add("power");
+                            power.add("combat");
 
 
-                            
+                            BarDataSet bardataset = new BarDataSet(powerstats, "PowerStats");
+                            binding.barChart.animateY(5000);
+                            BarData data = new BarData(power,bardataset);
+                            bardataset.setColors(ColorTemplate.COLORFUL_COLORS);
+                            binding.barChart.setData(data);
+                            binding.barChart.invalidate();
+
+
 
 
                         } catch (JSONException e) {
@@ -81,5 +109,11 @@ public class perfil extends AppCompatActivity {
 
 
     }
+
+
+
+
+
+
 
 }
