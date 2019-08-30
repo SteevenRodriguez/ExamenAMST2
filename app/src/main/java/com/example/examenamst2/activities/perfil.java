@@ -61,12 +61,48 @@ public class perfil extends AppCompatActivity {
                             JSONObject biography = response.getJSONObject("biography");
                             binding.nombreReal.setText(biography.getString("full-name"));
                             ArrayList powerstats = new ArrayList();
-                            powerstats.add(new BarEntry(Float.valueOf(response.getJSONObject("powerstats").getString("intelligence")), 0));
-                            powerstats.add(new BarEntry(Float.valueOf(response.getJSONObject("powerstats").getString("strength")), 1));
-                            powerstats.add(new BarEntry(Float.valueOf(response.getJSONObject("powerstats").getString("speed")), 2));
-                            powerstats.add(new BarEntry(Float.valueOf(response.getJSONObject("powerstats").getString("durability")), 3));
-                            powerstats.add(new BarEntry(Float.valueOf(response.getJSONObject("powerstats").getString("power")), 4));
-                            powerstats.add(new BarEntry(Float.valueOf(response.getJSONObject("powerstats").getString("combat")), 5));
+
+                            if (response.getJSONObject("powerstats").getString("intelligence").equals("null")){
+                                powerstats.add(new BarEntry((float) 0, 0));
+                            } else {
+                                powerstats.add(new BarEntry(Float.valueOf(response.getJSONObject("powerstats").getString("intelligence")), 0));
+                            }
+
+                            if (response.getJSONObject("powerstats").getString("strength").equals("null")){
+                                powerstats.add(new BarEntry((float) 0, 1));
+                            } else {
+                                powerstats.add(new BarEntry(Float.valueOf(response.getJSONObject("powerstats").getString("strength")), 1));
+
+                            }
+
+                            if (response.getJSONObject("powerstats").getString("speed").equals("null")){
+                                powerstats.add(new BarEntry((float) 0, 2));
+                            } else {
+                                powerstats.add(new BarEntry(Float.valueOf(response.getJSONObject("powerstats").getString("speed")), 2));
+                            }
+
+                            if (response.getJSONObject("powerstats").getString("durability").equals("null")){
+                                powerstats.add(new BarEntry((float) 0, 3));
+                            } else {
+                                powerstats.add(new BarEntry(Float.valueOf(response.getJSONObject("powerstats").getString("durability")), 3));
+
+
+                            }
+
+                            if (response.getJSONObject("powerstats").getString("power").equals("null")){
+                                powerstats.add(new BarEntry((float) 0, 4));
+                            } else {
+                                powerstats.add(new BarEntry(Float.valueOf(response.getJSONObject("powerstats").getString("power")), 4));
+
+                            }
+
+                            if (response.getJSONObject("powerstats").getString("combat").equals("null")){
+                                powerstats.add(new BarEntry((float) 0, 5));
+                            } else {
+                                powerstats.add(new BarEntry(Float.valueOf(response.getJSONObject("powerstats").getString("combat")), 5));
+                            }
+
+
 
                             ArrayList<String> power = new ArrayList<>();
 

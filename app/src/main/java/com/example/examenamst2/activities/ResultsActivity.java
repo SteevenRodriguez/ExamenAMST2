@@ -56,6 +56,7 @@ public class ResultsActivity extends AppCompatActivity {
                             final JSONArray lista_results =  (JSONArray) response.get("results");
 
                             binding.results.setText("Resultados:  "+lista_results.length());
+
                             for (int i = 0; i<lista_results.length();i++){
                                 final int index = i;
                                 Log.d("Nombre",lista_results.getJSONObject(i).getString("name") );
