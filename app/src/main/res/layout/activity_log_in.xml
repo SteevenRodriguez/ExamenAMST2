@@ -13,39 +13,47 @@
         android:orientation="vertical"
         tools:context=".activities.LogInActivity">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Usuario"
-            android:textSize="19sp"
-            android:padding="10dp"/>
-        <EditText
-            android:id="@+id/username"
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-           />
 
         <TextView
+            android:id="@+id/materia"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Contraseña"
-            android:layout_marginTop="10dp"
-            android:textSize="19sp"/>
+            android:text="Aplicaciones Móviles y Servicios Telemáticos"
+            android:textSize="30dp"
+            android:textAlignment="center"
+            android:layout_marginTop="40dp"/>
+        <TextView
+            android:id="@+id/examen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Examen práctico"
+            android:textSize="20dp"
+            android:textAlignment="center"
+            android:layout_marginTop="40dp"/>
+
+        <TextView
+            android:id="@+id/estudiantes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Steeven Rodriguez y Jonathan Yagual"
+            android:textSize="20dp"
+            android:textAlignment="center"
+            android:layout_marginTop="10dp"/>
 
         <EditText
-            android:id="@+id/password"
+            android:id="@+id/nombreHeroe"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:inputType="textPassword" />
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text=""
+            android:hint="Búsqueda por nombre"/>
 
         <Button
-            android:id="@+id/logButton"
+            android:id="@+id/buscar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Ingresar"/>
+            android:text="BUSCAR HÉROES" />
 
     </LinearLayout>
 </layout>
