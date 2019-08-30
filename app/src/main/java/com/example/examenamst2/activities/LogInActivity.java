@@ -32,21 +32,4 @@ public class LogInActivity extends AppCompatActivity {
 
 
     }
-    public void actualizarAutomaticamente(){
-        try{
-            final Handler handler = new Handler();
-            final Runnable runnable = new Runnable() {
-                @Override
-                public void run() {
-//                    identificarObjeto();
-//                    getBatery();
-
-                }
-            };
-            handler.postDelayed(runnable, 3000);
-        }catch (Exception e) {
-            e.printStackTrace();
-        }
-
-    }
 }
