@@ -67,7 +67,11 @@ public class ResultsActivity extends AppCompatActivity {
                                     @Override
                                     public void onClick(View view) {
                                         try {
-                                            Log.d("click", lista_results.getJSONObject(index).getString("id"));
+                                            Intent intent = new Intent(ResultsActivity.this,perfil.class);
+                                            intent.putExtra("Id",lista_results.getJSONObject(index).getString("id"));
+                                            startActivity(intent);
+
+
                                         } catch (JSONException e) {
                                             e.printStackTrace();
                                         }
